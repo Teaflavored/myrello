@@ -31,3 +31,23 @@ li.board-index-item{
   margin-bottom: 20px;
   border-radius: 5%;
 }
+
+div.board-show{
+  background:#2980b9;
+  height:500px;
+}
+
+li.list-item{
+  display:inline-block;
+  width:25%;
+  background:#ecf0f1;
+  height: 80px;
+  text-align: left;
+  border:1px black solid;
+  padding-left:3px;
+  padding-top: 3px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 5%;
+}

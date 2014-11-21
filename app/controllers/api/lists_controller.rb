@@ -12,6 +12,11 @@ module Api
       end
     end
 
+    def show
+      @list = List.find(params[:id])
+      render json: @list
+    end
+
     def destroy
       @list = List.find(params[:id])
       @list.destroy

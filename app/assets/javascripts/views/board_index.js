@@ -12,11 +12,10 @@ Trello.Views.BoardIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addView)
 
     this.boardsSelector = "ul.boards"
-
     //need to attach each of the views if they were already fetched
     this.collection.each(function(board){
       this.addView(board)
-    })
+    }.bind(this))
   },
 
   showBoard: function(event){
@@ -42,6 +41,7 @@ Trello.Views.BoardIndex = Backbone.CompositeView.extend({
   render: function(){
     var renderedContent = this.template()
     this.$el.html(renderedContent)
+    this.attachSubviews();
     return this;
   },
 
