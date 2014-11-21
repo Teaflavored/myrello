@@ -10,17 +10,16 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
     this.listenTo(this.model.cards(), "add", this.addView)
 
     this.model.cards().each(function(card){
-      
-    })
-  }
+      this.addView(card)
+    }.bind(this))
+  },
 
   addView: function(card){
     var cardView = new Trello.Views.CardItemView({
       model: card
     })
-
     this.addSubview(this.cardItemSelector, cardView)
-  }
+  },
 
   render: function(){
     var renderedContent = this.template({
