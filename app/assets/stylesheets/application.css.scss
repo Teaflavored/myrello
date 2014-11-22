@@ -34,12 +34,16 @@ li.board-index-item{
 
 div.board-show{
   background:#2980b9;
-  height:500px;
+  height:600px;
+  width:auto;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  white-space: nowrap;
 }
 
 li.list-item{
   display:inline-block;
-  width:25%;
+  width:200px;
   background:#bdc3c7;
   min-height: 60px;
   text-align: left;
@@ -50,6 +54,7 @@ li.list-item{
   margin-right: 20px;
   margin-bottom: 20px;
   border-radius: 5%;
+  vertical-align:top;
 }
 
 li.card-item{
@@ -61,4 +66,23 @@ li.card-item{
   padding-top:5px;
   padding-bottom:5px;
   width:70%;
+}
+
+ul.list-items{
+  display:inline-block;
+}
+
+div.new-list-form{
+  display:inline-block;
+}
+
+span.list-item-header{
+  width:100%;
+  display:inline-block;
+  position:relative;
+}
+
+span.list-item-header span.glyphicon {
+  position:absolute;
+  right:0;
 }

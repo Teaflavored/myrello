@@ -39,3 +39,4 @@ Trello.Views.BoardNew = Backbone.View.extend({
     return this;
   }
 })
+;

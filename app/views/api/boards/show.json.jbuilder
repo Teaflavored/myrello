@@ -3,6 +3,7 @@
 #  - its lists
 #    - the cards for each list
 json.partial!("api/boards/board", board: @board)
+#prefetching lists/cards
 json.lists do
   json.array!(@board.lists) do |list|
     json.extract!(list, :id, :title, :board_id, :ord)

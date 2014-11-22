@@ -45,3 +45,4 @@ Trello.Views.ListNew = Backbone.View.extend({
     return this;
   }
 })
+;

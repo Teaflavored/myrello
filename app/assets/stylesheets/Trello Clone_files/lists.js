@@ -5,3 +5,4 @@ Trello.Collections.Lists = Backbone.Collection.extend({
     return model.get("ord")
   }
 })
+;

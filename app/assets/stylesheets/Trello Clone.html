@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:3000/#/boards/1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Trello Clone</title>
+  <link href="http://localhost:3000/assets/application.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.core.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.theme.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.accordion.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.menu.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.autocomplete.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.button.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.datepicker.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.resizable.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.dialog.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.progressbar.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.selectable.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.slider.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.spinner.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.tabs.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.tooltip.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.base.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/jquery.ui.all.css?body=1" media="all" rel="stylesheet">
+<link href="http://localhost:3000/assets/bootstrap.css?body=1" media="all" rel="stylesheet">
+  <script src="./Trello Clone_files/jquery.js"></script>
+<script src="./Trello Clone_files/jquery_ujs.js"></script>
+<script src="./Trello Clone_files/jquery.ui.core.js"></script>
+<script src="./Trello Clone_files/jquery.ui.widget.js"></script>
+<script src="./Trello Clone_files/jquery.ui.mouse.js"></script>
+<script src="./Trello Clone_files/jquery.ui.sortable.js"></script>
+<script src="./Trello Clone_files/jquery.serializejson.js"></script>
+<script src="./Trello Clone_files/underscore.js"></script>
+<script src="./Trello Clone_files/backbone.js"></script>
+<script src="./Trello Clone_files/affix.js"></script>
+<script src="./Trello Clone_files/alert.js"></script>
+<script src="./Trello Clone_files/button.js"></script>
+<script src="./Trello Clone_files/carousel.js"></script>
+<script src="./Trello Clone_files/collapse.js"></script>
+<script src="./Trello Clone_files/dropdown.js"></script>
+<script src="./Trello Clone_files/tab.js"></script>
+<script src="./Trello Clone_files/transition.js"></script>
+<script src="./Trello Clone_files/scrollspy.js"></script>
+<script src="./Trello Clone_files/modal.js"></script>
+<script src="./Trello Clone_files/tooltip.js"></script>
+<script src="./Trello Clone_files/popover.js"></script>
+<script src="./Trello Clone_files/bootstrap.js"></script>
+<script src="./Trello Clone_files/trello.js"></script>
+<script src="./Trello Clone_files/index.js"></script>
+<script src="./Trello Clone_files/index_item.js"></script>
+<script src="./Trello Clone_files/new.js"></script>
+<script src="./Trello Clone_files/show.js"></script>
+<script src="./Trello Clone_files/card_item.js"></script>
+<script src="./Trello Clone_files/list_item.js"></script>
+<script src="./Trello Clone_files/new(1).js"></script>
+<script src="./Trello Clone_files/composite_view.js"></script>
+<script src="./Trello Clone_files/board.js"></script>
+<script src="./Trello Clone_files/card.js"></script>
+<script src="./Trello Clone_files/list.js"></script>
+<script src="./Trello Clone_files/boards.js"></script>
+<script src="./Trello Clone_files/cards.js"></script>
+<script src="./Trello Clone_files/lists.js"></script>
+<script src="./Trello Clone_files/board_index.js"></script>
+<script src="./Trello Clone_files/board_index_item.js"></script>
+<script src="./Trello Clone_files/board_new.js"></script>
+<script src="./Trello Clone_files/board_show.js"></script>
+<script src="./Trello Clone_files/card_item(1).js"></script>
+<script src="./Trello Clone_files/list_item(1).js"></script>
+<script src="./Trello Clone_files/list_new.js"></script>
+<script src="./Trello Clone_files/app_router.js"></script>
+<script src="./Trello Clone_files/application.js"></script>
+  <meta content="authenticity_token" name="csrf-param">
+<meta content="UE2nRURlrzv695VErb+uOxyaCvT2b+ASp64ztAVXqC0=" name="csrf-token">
+</head>
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+<div class="container container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://localhost:3000/#">Trello Clone</a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <li id="add-dropdown" class="dropdown">
+        <button class="dropdown-toggle navbar-btn btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </li>
+      <li><form action="http://localhost:3000/session" class="button_to" method="post"><div><input name="_method" type="hidden" value="delete"><input class="btn btn-primary navbar-btn" type="submit" value="Sign out"><input name="authenticity_token" type="hidden" value="UE2nRURlrzv695VErb+uOxyaCvT2b+ASp64ztAVXqC0="></div></form></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+    <div class="backdrop">
+  <div id="main"><div class="board-show"><h2>Workout</h2>
+<ul class="list-items" style="
+    position: relative;
+"><li class="list-item">done
+<ul class="card-items"><li class="card-item">squats
+</li><li class="card-item">situps
+</li><li class="card-item">pushups
+</li></ul>
+</li><li class="list-item">doing
+<ul class="card-items"><li class="card-item">squats
+</li><li class="card-item">pushups
+</li><li class="card-item">situps
+</li></ul>
+</li><li class="list-item">todo
+<ul class="card-items"><li class="card-item">squats
+</li><li class="card-item">pushups
+</li><li class="card-item">situps
+</li></ul>
+</li><li class="list-item">auster
+<ul class="card-items">
+
+</ul>
+</li><li class="list-item">2nd
+<ul class="card-items">
+
+</ul>
+</li><li class="list-item">asdf
+<ul class="card-items">
+
+</ul>
+</li><li class="list-item">asdfzxcv
+<ul class="card-items">
+
+</ul>
+</li><li class="list-item">asdfzxcvasdfasdf
+<ul class="card-items">
+
+</ul>
+</li><li class="list-item">asdf
+<ul class="card-items">
+
+</ul>
+</li><li class="list-item">asdf
+<ul class="card-items">
+
+</ul>
+</li></ul>
+
+<div class="new-list-form">
+
+<div>
+
+<a href="">Back to Index</a>
+</div><div><form>
+  <input type="hidden" name="list[ord]" value="9">
+  <input type="text" name="list[title]" placeholder="Add a list" id="list_title">
+  <input type="submit" value="Save" class="btn btn-success">
+</form>
+</div></div></div></div>
+</div>
+<script>$(Trello.initialize);</script>
+
+
+
+</body></html>

@@ -1,0 +1,2 @@
+(function() { this.JST || (this.JST = {}); this.JST["lists/new"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<form>\n  <input type="hidden" name="list[ord]"\n         value="',  ord ,'">\n  <input type="text" name="list[title]"\n         placeholder="Add a list"\n         id="list_title">\n  <input type="submit" value="Save" class="btn btn-success">\n</form>\n');}return __p.join('');};
+}).call(this);

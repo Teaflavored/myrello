@@ -5,40 +5,26 @@ Trello.Views.BoardShow = Backbone.CompositeView.extend({
   className: "board-show",
 
   initialize: function(){
-    //will take in model of board as this.model
+    //will take in model of board
+
 
     this.listItemSelector = "ul.list-items"
     //listens to changes in the model so we can update its title for now
+
     this.listenTo(this.model, "sync", this.render)
     this.listenTo(this.model.lists(), "add", this.addView)
-    this.listenTo(this.model.lists(), "remove", this.removeView)
 
-
-    //rendering all the lists
     this.model.lists().each(function(list){
       this.addView(list)
     }.bind(this))
   },
-
   //add a single view with a list model
   addView: function(list){
     var listView = new Trello.Views.ListItem({
-      model: list,
-      board: this.model
+      model: list
     })
     this.addSubview(this.listItemSelector, listView)
   },
-
-  //remove view with a list model
-  removeView: function(list){
-    //iterate through subviews list and find the right subview
-    _.each(this.subviews(this.listItemSelector), function(view){
-      if(view.model.id === list.id){
-        this.removeSubview(this.listItemSelector, view)
-      }
-    }.bind(this))
-  },
-
   //renders page, attach all subviews, adds a new form
   render: function(){
     var renderedContent = this.template({
@@ -60,3 +46,4 @@ Trello.Views.BoardShow = Backbone.CompositeView.extend({
   },
 
 })
+;

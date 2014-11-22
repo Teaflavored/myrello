@@ -1,4 +1,10 @@
-<%= list.escape("title") %>
+<span class="list-item-header">
+  <span>
+  <%= list.escape("title") %>
+  </span>
+  <span class="glyphicon glyphicon-remove" data-id="<%= list.id %>" aria-hidden="true"></span>
+</span>
+
 <ul class="card-items">
 
 </ul>
