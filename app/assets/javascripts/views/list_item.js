@@ -3,6 +3,12 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
   template: JST["lists/list_item"],
   tagName: "li",
   className: "list-item",
+  attributes: function(){
+    return {
+      "data-list-ord": this.model.escape("ord"),
+      "data-list-id": this.model.id
+    }
+  },
 
   events: {
     //delegated delete event
@@ -61,7 +67,6 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
     //after cards view attached need to add new button
     var newButtonView = new Trello.Views.CardNewButton()
     this.$("div.new-card-form").append(newButtonView.render().$el)
-
     return this;
   }
 })

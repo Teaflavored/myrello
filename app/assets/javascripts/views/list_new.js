@@ -34,7 +34,7 @@ Trello.Views.ListNew = Backbone.View.extend({
 
     //when rendering the new form, always need potential next ord
     var lastList = this.board.lists().last()
-    var newOrd = lastList ? lastList.get("ord") + 1 : 0
+    var newOrd = lastList ? (lastList.get("ord") + 1) * 2 : 1
 
     //template needs ord and board id
     var renderedContent = this.template({
