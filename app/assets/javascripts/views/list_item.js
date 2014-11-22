@@ -58,9 +58,10 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent)
     this.attachSubviews();
-
+    //after cards view attached need to add new button
     var newButtonView = new Trello.Views.CardNewButton()
     this.$("div.new-card-form").append(newButtonView.render().$el)
+
     return this;
   }
 })

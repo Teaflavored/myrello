@@ -10,7 +10,6 @@ Trello.Views.CardItemView = Backbone.View.extend({
 
     this.$el.html(renderedContent)
 
-
     return this;
   }
 })
