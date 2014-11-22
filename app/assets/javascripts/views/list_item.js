@@ -21,6 +21,8 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
     //this.model refers to the list item
     this.board = options.board
     this.cardItemSelector = "ul.card-items"
+
+
     this.listenTo(this.model.cards(), "add", this.addView)
 
     //rendering the cards
@@ -67,6 +69,15 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
     //after cards view attached need to add new button
     var newButtonView = new Trello.Views.CardNewButton()
     this.$("div.new-card-form").append(newButtonView.render().$el)
+
+
+
+
+    //sort card items
+    console.log(this.$(".sortable-card-items"))
+
+    //for any new lists, also make them sortable
+    this.$(".sortable-card-items").sortable()
     return this;
   }
 })

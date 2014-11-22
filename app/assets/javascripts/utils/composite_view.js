@@ -17,9 +17,11 @@ Backbone.CompositeView = Backbone.View.extend({
     // DOM.
     subview.delegateEvents();
 
-    if (subview.attachSubviews) {
-      subview.attachSubviews();
-    }
+
+    //dont' need recursive since i'm adding it myself
+    // if (subview.attachSubviews) {
+    //   subview.attachSubviews();
+    // }
   },
 
   //rewriting in this so i can do prepend
@@ -29,9 +31,9 @@ Backbone.CompositeView = Backbone.View.extend({
     // DOM.
     subview.delegateEvents();
 
-    if (subview.attachSubviews) {
-      subview.attachSubviews();
-    }
+    // if (subview.attachSubviews) {
+    //   subview.attachSubviews();
+    // }
   },
 
   attachSubviews: function () {

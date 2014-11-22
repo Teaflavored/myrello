@@ -45,7 +45,6 @@ Trello.Views.BoardShow = Backbone.CompositeView.extend({
 
   rearrangeLists: function(event, ui){
     var serializedId = $(".sortable-lists").sortable("serialize", { key: "list[]" })
-    console.log(serializedId)
     var url = "/api/boards/" + this.model.id + "/sort"
     $.ajax({
       url: url,
@@ -77,7 +76,8 @@ Trello.Views.BoardShow = Backbone.CompositeView.extend({
 
     //add sortable to a listUL
     this.$(".sortable-lists").sortable()
-
+    //add sortable here to card items
+    this.$(".sortable-card-items").sortable()
 
     return this;
   },

@@ -1,6 +1,6 @@
 Trello.Views.ListNew = Backbone.View.extend({
   template: JST["lists/new"],
-  
+
   events: {
     "submit form": "createList"
   },
