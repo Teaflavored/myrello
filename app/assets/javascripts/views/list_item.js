@@ -6,7 +6,8 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
 
   events: {
     //delegated delete event
-    "click span.glyphicon-remove": "deleteListItem"
+    "click span.glyphicon-remove": "deleteListItem",
+    "click button.new-card-form": "showNewCardForm"
   },
 
   initialize: function(options){
@@ -15,8 +16,6 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
     this.board = options.board
     this.cardItemSelector = "ul.card-items"
     this.listenTo(this.model.cards(), "add", this.addView)
-
-
 
     //rendering the cards
     this.model.cards().each(function(card){
@@ -42,6 +41,16 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
     }
   },
 
+  //cover up a button with a form for a new card
+  showNewCardForm: function(event){
+    event.preventDefault()
+    var newCardView = new Trello.Views.CardNew({
+      list: this.model
+    })
+    this.$("div.new-card-form").html(newCardView.render().$el)
+    this.$("div.new-card-form").find("input#card_title").focus()
+  },
+
   render: function(){
     var renderedContent = this.template({
       list: this.model
@@ -49,6 +58,9 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent)
     this.attachSubviews();
+
+    var newButtonView = new Trello.Views.CardNewButton()
+    this.$("div.new-card-form").append(newButtonView.render().$el)
     return this;
   }
 })

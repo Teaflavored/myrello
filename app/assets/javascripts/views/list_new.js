@@ -24,10 +24,11 @@ Trello.Views.ListNew = Backbone.View.extend({
         //once new list is saved add it to board's lists
         this.board.lists().add(newList)
         //clear out input value
-        this.$("input#list_title").val("")
+        this.render()
       }.bind(this)
     })
   },
+
 
   render: function(){
 

@@ -2,7 +2,8 @@ Trello.Views.CardNew = Backbone.View.extend({
   template: JST["cards/new"],
 
   events: {
-    "submit form": "createCard"
+    "submit form": "createCard",
+    "click button.close-form": "restoreButton"
   },
 
   initialize: function(options){
@@ -17,7 +18,19 @@ Trello.Views.CardNew = Backbone.View.extend({
     cardParams.card.list_id = this.list.id
     var newCard = new Trello.Models.Card()
     newCard.set(cardParams)
-    newCard.save({})
+    newCard.save({},{
+      success: function(){
+        this.list.cards().add(newCard)
+        this.restoreButton();
+      }.bind(this)
+    })
+  },
+
+
+  restoreButton: function(event){
+    event && event.preventDefault();
+    var newButtonView = new Trello.Views.CardNewButton()
+    $("div.new-card-form").html(newButtonView.render().$el)
   },
 
   render: function(){
