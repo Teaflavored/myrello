@@ -1,5 +1,6 @@
 Trello.Views.ListNew = Backbone.View.extend({
   template: JST["lists/new"],
+  
   events: {
     "submit form": "createList"
   },
@@ -34,7 +35,7 @@ Trello.Views.ListNew = Backbone.View.extend({
 
     //when rendering the new form, always need potential next ord
     var lastList = this.board.lists().last()
-    var newOrd = lastList ? (lastList.get("ord") + 1) * 2 : 1
+    var newOrd = lastList ? 1 + lastList.get("ord") : 0
 
     //template needs ord and board id
     var renderedContent = this.template({

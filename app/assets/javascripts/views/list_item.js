@@ -6,7 +6,7 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
   attributes: function(){
     return {
       "data-list-ord": this.model.escape("ord"),
-      "data-list-id": this.model.id
+      "id": "list_" + this.model.id
     }
   },
 

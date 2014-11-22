@@ -21,4 +21,6 @@ class Board < ActiveRecord::Base
     return true if u.id == self.user_id
     board_memberships.where(user_id: u.id).exists?
   end
+
+  private
 end

@@ -5,7 +5,9 @@ TrelloClone::Application.routes.draw do
   resource :session
 
   namespace :api, defaults: { format: :json } do
-    resources :boards, except: [:new, :edit]
+    resources :boards, except: [:new, :edit] do
+      post "sort"
+    end
     resources :lists, only: [:create, :update, :destroy, :show]
     resources :cards, only: [:create, :update, :destroy]
 

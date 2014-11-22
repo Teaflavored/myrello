@@ -5,7 +5,7 @@ Trello.Views.BoardShow = Backbone.CompositeView.extend({
   className: "board-show",
 
   events: {
-    "sortdeactivate .sortable-lists": "rearrangeLists"
+    "sortstop .sortable-lists": "rearrangeLists"
   },
 
   initialize: function(){
@@ -44,44 +44,18 @@ Trello.Views.BoardShow = Backbone.CompositeView.extend({
   },
 
   rearrangeLists: function(event, ui){
-    var $currentItem = ui.item
-    console.log($currentItem.data("list-ord"))
-    var listId = $currentItem.data("list-id")
-    var list = this.model.lists().get(listId)
-    //index of prevItem and nextItem
-    var prevItemIdx = $currentItem.index() - 1
-    var nextItemIdx = $currentItem.index() + 1
-    var $prevItem = $currentItem.prev()
-    var $nextItem = $currentItem.next()
-    //number items
-    var totalItems = this.model.lists().length
-
-    //if prevItemIdx is -1, then you're moving current item to first in list, set ord to 0
-    if(prevItemIdx === -1){
-      var nextItemOrd = $currentItem.data("list-ord")
-      list.save({ord: nextItemOrd / 2}, {
-        success: function(){
-          $currentItem.attr("data-list-ord", nextItemOrd / 2)
-        }
-      })
-
-    } else if ( nextItemIdx >= totalItems){
-      var prevItemOrd = $currentItem.data("list-ord")
-      list.save({ord: prevItemOrd * 2}, {
-        success: function(){
-          $currentItem.attr("data-list-ord", prevItemOrd * 2)
-        }
-      })
-    } else {
-      var prevOrd = $prevItem.data("list-ord")
-      var nextOrd = $nextItem.data("list-ord")
-      var newOrd = (prevOrd + nextOrd) / 2
-      list.save({ord: newOrd }, {
-        success: function(){
-          $currentItem.attr("data-list-ord", newOrd)
-        }
-      })
-    }
+    var serializedId = $(".sortable-lists").sortable("serialize", { key: "list[]" })
+    console.log(serializedId)
+    var url = "/api/boards/" + this.model.id + "/sort"
+    $.ajax({
+      url: url,
+      type: "POST",
+      dataType: "json",
+      data: serializedId,
+      error: function(){
+        Backbone.history.navigate("#/boards/" + this.model.id , {trigger: true})
+      }
+    })
   },
 
   //renders page, attach all subviews, adds a new form

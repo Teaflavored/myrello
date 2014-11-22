@@ -17,7 +17,18 @@ class List < ActiveRecord::Base
   has_many :cards, dependent: :destroy
 
   default_scope { order(:ord) }
-  private
 
+
+  def self.sort_by!(arr)
+    ord = 0
+    arr.each do |id|
+      if list = List.find(id)
+        p list
+        list.ord = ord
+        list.save!
+        ord+= 1
+      end
+    end
+  end
   # TODO: class method for updating orders?
 end
