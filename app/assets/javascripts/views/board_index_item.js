@@ -7,15 +7,11 @@ Trello.Views.BoardIndexItem = Backbone.View.extend({
   //add a class to the li to style it
   className: "board-index-item",
 
-
   //also need attributes so we know which board to access
   attributes: function(){
     return {
       "data-id": this.model.id
     }
-  },
-
-  initialize: function(options){
   },
 
   render: function (){
