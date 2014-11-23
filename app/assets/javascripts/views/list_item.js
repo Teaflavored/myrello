@@ -18,8 +18,14 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
     "click li.card-item": "showDetails"
   },
 
-  showDetails: function(){
-    var cardItemView = new Trello.Views.CardItemShow()
+  showDetails: function(event){
+    //clicking on a card item should display modal of card information
+    event.preventDefault()
+    var cardId = $(event.currentTarget).data("card-id")
+    var card = this.model.cards().get(cardId)
+    var cardItemView = new Trello.Views.CardItemShow({
+      card: card
+    })
     $("body").append(cardItemView.render().$el)
   },
 

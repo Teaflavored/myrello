@@ -4,6 +4,6 @@
 <script>
   $(function(){
     Trello.initialize()
+    Trello.currentUser = <%= current_user.email.to_json.html_safe %>
   });
-
 </script>

@@ -8,8 +8,8 @@ Trello.Views.BoardNew = Backbone.View.extend({
 
   removeForm: function(event){
     //check if there is event so we can reuse this removeform in create
-    event && event.preventDefault()
-    this.$el.empty()
+    event.preventDefault()
+    this.$el.remove()
   },
 
   createBoard: function(event){

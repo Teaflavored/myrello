@@ -7,8 +7,14 @@ Trello.Views.CardItemShow = Backbone.View.extend({
     this.$el.remove()
   },
 
+  initialize: function(options){
+    this.card = options.card
+  },
+
   render: function(){
-    var renderedContent = this.template()
+    var renderedContent = this.template({
+      card: this.card
+    })
     this.$el.html(renderedContent)
     return this;
   }

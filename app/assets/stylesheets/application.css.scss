@@ -18,8 +18,11 @@
 
 #main h1{
   margin-left:63px;
+  display:inline-block;
+
 }
 #main h1.board-title{
+  display:block;
   color:#95A5A6;
   font-weight:lighter;
   font-size:3em;
@@ -141,4 +144,24 @@ nav.navbar.navbar-default{
 
 body{
   margin:0
+}
+
+button.new-form{
+  display: inline-block;
+  margin-bottom:19px;
+  margin-right:10px;
+}
+
+div.new-form{
+  position:absolute;
+  top:20px;
+  background:#ECF0F1;
+  border-radius:10px;
+  display: inline-block;
+  padding:10px;
+}
+
+div.new-form:empty{
+  display:none;
+  visibility:hidden;
 }
