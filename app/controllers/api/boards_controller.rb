@@ -32,9 +32,13 @@ module Api
     end
 
     def sort
-      @board = current_user.boards.find(params[:board_id])
-      @board.lists.sort_by!(params["list"])
 
+      @board = current_user.boards.find(params[:board_id])
+      if(params["list"])
+        @board.lists.sort_by!(params["list"])
+      elsif params["card_list"]
+        Card.sort_by!(params["card_list"], params["list_id"])
+      end
       render :show
     end
 

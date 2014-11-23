@@ -13,7 +13,8 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
   events: {
     //delegated delete event
     "click span.glyphicon-remove": "deleteListItem",
-    "click button.new-card-form": "showNewCardForm"
+    "click button.new-card-form": "showNewCardForm",
+    "sortstop .sortable-card-items": "rearrangeCard"
   },
 
   initialize: function(options){
@@ -49,6 +50,21 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
     }
   },
 
+  rearrangeCard: function(event, ui){
+    var data = ui.item.parent().sortable("serialize", { key: "card_list[]", attribute: "id" })
+    data += "&list_id=" + ui.item.parent().data("id")
+    $.ajax({
+      url: "/api/boards/" + this.model.escape("board_id") + "/sort",
+      type: "POST",
+      dataType: "json",
+      data: data,
+      error: function(){
+        //if error, rerender this list
+        this.render()
+      }.bind(this)
+    })
+  },
+
   //cover up a button with a form for a new card
   showNewCardForm: function(event){
     event.preventDefault()
@@ -66,7 +82,7 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent)
     this.attachSubviews();
-    //after cards view attached need to add new button
+    // after cards view attached need to add new button
     var newButtonView = new Trello.Views.CardNewButton()
     this.$("div.new-card-form").append(newButtonView.render().$el)
 
@@ -74,10 +90,9 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
 
 
     //sort card items
-    console.log(this.$(".sortable-card-items"))
 
     //for any new lists, also make them sortable
-    this.$(".sortable-card-items").sortable()
+    this.$(".sortable-card-items").sortable({connectWith: ".sortable-card-items", dropOnEmpty: true})
     return this;
   }
 })

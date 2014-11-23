@@ -76,8 +76,8 @@ Trello.Views.BoardShow = Backbone.CompositeView.extend({
 
     //add sortable to a listUL
     this.$(".sortable-lists").sortable()
-    //add sortable here to card items
-    this.$(".sortable-card-items").sortable()
+    //add sortable here to card items, but still need to add to new list
+    this.$(".sortable-card-items").sortable({connectWith: ".sortable-card-items",dropOnEmpty: true})
 
     return this;
   },

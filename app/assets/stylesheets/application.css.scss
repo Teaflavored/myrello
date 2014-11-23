@@ -41,15 +41,16 @@ div.board-show{
   white-space: nowrap;
 }
 
+// for the list blocks
 li.list-item{
   display:inline-block;
   width:200px;
   background:#bdc3c7;
-  min-height: 60px;
   text-align: left;
   border:1px black solid;
   padding-left:10px;
-  padding-top: 3px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
@@ -85,4 +86,9 @@ span.list-item-header{
 span.list-item-header span.glyphicon {
   position:absolute;
   right:0;
+}
+
+ul.sortable-card-items{
+  min-height:120px;
+  padding:10px;
 }
