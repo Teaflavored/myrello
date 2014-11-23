@@ -1,5 +1,8 @@
 Trello.Views.BoardIndex = Backbone.CompositeView.extend({
   template: JST["boards/index"],
+  attributes: {
+    "id":"index"
+  },
 
   events: {
     "click button.new-form": "showNewForm",

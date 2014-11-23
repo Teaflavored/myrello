@@ -2,9 +2,12 @@ Trello.Views.CardItemView = Backbone.View.extend({
   template: JST["cards/card_item"],
   tagName: "li",
   className: "card-item",
+
   attributes: function(){
     return {
-      "id": "card_list_" + this.model.id
+      "id": "card_list_" + this.model.id,
+      "data-toggle": "modal",
+      "data-target": "#myModal"
     }
   },
 

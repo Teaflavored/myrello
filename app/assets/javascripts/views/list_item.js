@@ -14,7 +14,13 @@ Trello.Views.ListItem = Backbone.CompositeView.extend({
     //delegated delete event
     "click span.glyphicon-remove": "deleteListItem",
     "click button.new-card-form": "showNewCardForm",
-    "sortstop .sortable-card-items": "rearrangeCard"
+    "sortstop .sortable-card-items": "rearrangeCard",
+    "click li.card-item": "showDetails"
+  },
+
+  showDetails: function(){
+    var cardItemView = new Trello.Views.CardItemShow()
+    $("body").append(cardItemView.render().$el)
   },
 
   initialize: function(options){
