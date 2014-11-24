@@ -226,8 +226,16 @@ textarea.desc_text{
   height:200px;
 }
 
-
+ul.nav.navbar-nav.navbar-right li{
+  margin-left:5px;
+}
 
 div.description{
   margin-left:15px;
+}
+
+div.sign-in-form{
+  position:absolute;
+  left:37.5%;
+  width:25%;
 }

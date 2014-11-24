@@ -14,7 +14,6 @@ Trello.Views.CardItemShow = Backbone.View.extend({
   },
 
   editDescription: function(card){
-    alert('hi')
     this.$("div.description").html("Description: " + card.escape("description"))
   },
 

@@ -8,15 +8,21 @@
       <span class="icon-bar"></span>
     </button>
     <a class="navbar-brand" href="#">Myrello</a>
-    <div class="boards-search navbar-form navbar-left">
-      <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" class="btn btn-info">Submit</button>
-      </form>
-      <ul class="boards"></ul>
-    </div>
+
+    <% if signed_in? %>
+      <div class="boards-search navbar-form navbar-left">
+        <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+        <ul class="boards"></ul>
+      </div>
+    <% end %>
+
+
+
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
