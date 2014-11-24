@@ -8,6 +8,15 @@
       <span class="icon-bar"></span>
     </button>
     <a class="navbar-brand" href="#">Myrello</a>
+    <div class="boards-search navbar-form navbar-left">
+      <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+      <ul class="boards"></ul>
+    </div>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -15,11 +24,11 @@
     <% if signed_in? %>
       <li id='add-dropdown' class='dropdown'>
         <button
-          class='dropdown-toggle navbar-btn btn btn-primary'
+          class='dropdown-toggle navbar-btn btn btn-info'
           data-toggle='dropdown'><span class='glyphicon glyphicon-plus'></span>
         </button>
       </li>
-      <li><%= button_to "Sign out", session_url, method: :delete, class: "btn btn-primary navbar-btn" %></li>
+      <li><%= button_to "Sign out", session_url, method: :delete, class: "btn btn-info navbar-btn" %></li>
     <% else %>
       <li><%= link_to "Log in", new_session_url %></li>
       <li><%= link_to "Sign up", new_user_url %></li>

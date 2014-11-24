@@ -116,7 +116,11 @@ span.list-item-header{
 
 span.list-item-header span.glyphicon {
   position:absolute;
-  right:0;
+  top:5px;
+  right:23px;
+}
+span.list-item-header span.glyphicon:hover {
+  cursor:pointer;
 }
 
 ul.sortable-card-items{
@@ -164,4 +168,44 @@ div.new-form{
 div.new-form:empty{
   display:none;
   visibility:hidden;
+}
+
+div.boards-search{
+  display:inline-block;
+  margin-top:0;
+  margin-bottom:0;
+  position:relative;
+}
+
+div.boards-search ul.boards{
+  padding-left:0;
+  list-style:none;
+  z-index:5;
+  background: rgba(108,122,137,0.9);
+  color:#EEEEEE;
+  position:absolute;
+  top:50px;
+  right:102px;
+  width:160px;
+  overflow-y: scroll;
+}
+
+div.boards-search ul.boards:empty{
+  display:none;
+  visibility:hidden;
+}
+
+div.boards-search ul.boards li{
+  text-align:center;
+  margin: 0 auto;
+  width:100%;
+}
+
+div.boards-search ul.boards li:hover{
+  background: #ABB7B7;
+  margin-left:0;
+  margin-right:0;
+  margin-top:5px;
+  margin-bottom:5px;
+  cursor:pointer;
 }

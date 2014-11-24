@@ -42,6 +42,20 @@ module Api
       render :show
     end
 
+    def search
+      if params[:query]
+        if params[:query].match(/\S/)
+          @boards = Board.where("UPPER(title) ~ ?", params[:query].upcase)
+        else
+          @boards = Board.none
+        end
+      else
+        @boards = Board.none
+      end
+
+      render :search
+    end
+
     private
 
     def board_params
