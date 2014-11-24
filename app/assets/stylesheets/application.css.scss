@@ -209,3 +209,25 @@ div.boards-search ul.boards li:hover{
   margin-bottom:5px;
   cursor:pointer;
 }
+
+div.modal-body li.edit-description{
+  list-style:none;
+  border-radius:5px;
+  width:25%;
+}
+
+div.modal-body li.edit-description:hover{
+  cursor:pointer;
+  background:#BDC3C7;
+}
+
+textarea.desc_text{
+  width:550px;
+  height:200px;
+}
+
+
+
+div.description{
+  margin-left:15px;
+}
