@@ -16,6 +16,29 @@
                placeholder="Password">
       </label>
     </div>
-    <input type="submit" value="Submit" class="btn btn-primary"><br>
+    <input type="submit" value="Sign In" class="btn btn-primary"><br>
+    <br>
+    <button class="btn btn-primary guest-login">Guest Login</button>
   </form>
 </div>
+
+<script>
+  $(function(){
+    $("button").on("click", function(event){
+      event.preventDefault();
+      $.ajax({
+        url: "/session",
+        type: "POST",
+        data: {
+          "user": {
+            "email": "ripe@gmail.com",
+            "password": "password"
+          }
+        },
+        success: function(){
+          window.location.pathname = "/";
+        }
+      })
+    })
+  })
+</script>
